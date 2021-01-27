@@ -1,0 +1,95 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "8851f94b-53d0-4292-b242-e6e4e18f45bb",
+    "name": "FlywayDockerImage",
+    "friendlyName": "Flyway Docker Image",
+    "description": "A custome task for getting Flyway Docker image and execute it.",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "Mohammad Shadnik",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 0
+    },
+    "instanceNameFormat": "Echo $(samplestring)",
+    "inputs": [
+        {
+            "name": "dataBaseName",
+            "type": "string",
+            "label": "Database name",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The database name."
+        },
+        {
+            "name": "dataBaseUrl",
+            "type": "string",
+            "label": "Database URL",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The database URL."
+        },
+        {
+            "name": "dataBaseUsername",
+            "type": "string",
+            "label": "Database username",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Database username."
+        },
+        {
+            "name": "dataBasePassword",
+            "type": "string",
+            "label": "Database password",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Database password."
+        },
+        {
+            "name": "ignoreMissingMigrations",
+            "type": "boolean",
+            "label": "Ignore Missing Migrations",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Ignore Missing Migrations(true or false)."
+        },
+        {
+            "name": "migrationExecute",
+            "type": "boolean",
+            "label": "Migration Execute",
+            "defaultValue": "true",
+            "required": true,
+            "helpMarkDown": "Migration Execute."
+        },
+        {
+            "name": "operations",
+            "type": "string",
+            "label": "Operations",
+            "defaultValue": " 'info', 'migrate', 'info' ",
+            "required": true,
+            "helpMarkDown": "Example: 'info', 'migrate', 'info'."
+        },
+        {
+            "name": "scriptPath",
+            "type": "string",
+            "label": "Script Path",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Path of script should be executed."
+        },
+        {
+            "name": "sourceBranch",
+            "type": "string",
+            "label": "Source Branch",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "The artifact entry branch."
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "index.js"
+        }
+    }
+}
